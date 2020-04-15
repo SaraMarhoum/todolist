@@ -10,7 +10,7 @@ gPop.style.display = "none";
 
 /***************reusable function********************/
 
-/* Function pour l'alert et le popup qui va etre afficher (time control)*/
+/* Function pour l'alert et le popup qui va etre affiché (time control)*/
 function start(duree)
 {
 var o=document.getElementById("sp");
