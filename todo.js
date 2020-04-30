@@ -155,12 +155,36 @@ list.addEventListener('click', e =>{
 const retrieve = (term) =>{
 
    //function pour faire un filtre i
+   //Array.from() returns an Array object from any object
+   //in this case we'll get an array of the Li that are the children of ul (list) 
+   Array.from(list.children)
+
+   // filter() creates an array filled with all array elements that pass a test (provided as a function).
+   .filter((item)=>{  
+      //if the text in the item is not matching the term defined bellow with the value of the search then add the class filtre witch display a none 
+      return !item.textContent.includes(term)})
+      .forEach((item)=>{
+         return item.classList.add('filtre');
+      });
+   
+      Array.from(list.children)
+   .filter((item)=>{  
+      //in this case if the item match the term then display it with the filter class removed
+      return item.textContent.includes(term)})
+      .forEach((item)=>{
+         return item.classList.remove('filtre');
+      })
 };  
 
 
 //evenement de recherche des mots clés 
+// 'keyup' or onkeyup ==> a function is triggered when the user releases a key in the input field
 search.addEventListener('keyup', () =>{
-  
+  const term = search.value.trim();
+
+     // apply the function leave only the list containing the todo matching the term dipslayed and disable the rest of li 
+     retrieve(term);
+     // here the retrieve(term) function is triggered when we enter a term or kayword in the input 
 
 })
 
