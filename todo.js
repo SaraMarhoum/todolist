@@ -117,9 +117,7 @@ btn.addEventListener('click',e =>{
 
       // duration for the pop up generated 3s
       start(3);
-   }
- 
-  
+   } 
 });
 
 /************* Fin Adding TO DO**************/
@@ -128,7 +126,15 @@ btn.addEventListener('click',e =>{
 
 /*************Deleting  TO DO**************/
 list.addEventListener('click', e =>{
-   
+
+
+   //contains() is a function to return a boolean if the child element is there
+   //here we target the delate class to be the object clicked 
+   if(e.target.classList.contains('delete')){
+      
+      //remove the parent element of the i which is the list li 
+      e.target.parentElement.remove();
+   }
 
 });
 
