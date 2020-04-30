@@ -94,6 +94,30 @@ onetime(gPop,'click',handler);
 
 //Eventlistner Add TODOS
 btn.addEventListener('click',e =>{
+   //prevent the btn from submitting the form (cancel the event) if not add => input is not shown in the table above 
+   e.preventDefault(); //!important
+
+   const todo = addForm.add.value.trim(); //const with value of the imput and trimmed by the edges to cancel space
+   const res = document.querySelector('body > div.container > form > input'); //const for the empty input 
+
+   if(todo.length){
+
+      //re-use the todo generation function above when we have the length of the todo input value 
+    generateTemp(todo);
+
+      //reset the form by delating the input with the reset(); function after it's add to the table  ( empty the form)
+    if(todo==res.value){
+      addForm.reset();
+   }
+   }
+
+   //if we click add but the input field is empty => generate the pop-up to alert using the create() above 
+   else{ 
+      create();
+
+      // duration for the pop up generated 3s
+      start(3);
+   }
  
   
 });
@@ -103,7 +127,8 @@ btn.addEventListener('click',e =>{
 
 
 /*************Deleting  TO DO**************/
-list.addEventListener('click',e =>{
+list.addEventListener('click', e =>{
+   
 
 });
 
